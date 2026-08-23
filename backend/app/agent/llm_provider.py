@@ -354,7 +354,7 @@ class GeminiLLMProvider(LLMProvider):
             print("Token Usage Observability: CACHE HIT (No tokens used)")
             return self._cache[cache_key]
 
-        # pyrefly: ignore [missing-import]
+        
         from google.genai import types
 
         prompt_content = user_prompt
