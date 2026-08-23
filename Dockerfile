@@ -40,4 +40,4 @@ ENV PORT=8000
 ENV PYTHONPATH=/app
 
 # Start the application
-CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"]
