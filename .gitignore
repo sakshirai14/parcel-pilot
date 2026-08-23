@@ -19,8 +19,7 @@ dist/
 build/
 
 # Application-generated data directories to ignore
-data/database/*.db
-data/vectorstore/
+
 data/processed/
 data/generated/
 logs/
