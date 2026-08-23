@@ -324,5 +324,22 @@ class TestCancelOrderFlow(unittest.TestCase):
             self.assertNotIn("order cancellation cannot be executed directly in chat", data["answer"])
             self.assertIn("cancelled", data["answer"].lower())
 
+    def test_12_lexical_retriever_render_free_mode(self):
+        import os
+        from backend.app.retrieval.retriever import DocumentRetriever
+        
+        # Enable RENDER_FREE_MODE
+        os.environ["RENDER_FREE_MODE"] = "true"
+        try:
+            retriever = DocumentRetriever()
+            res = retriever.search(query="cancellation fee", customer_account_id="ACCT-001")
+            self.assertTrue(len(res) > 0)
+            
+            # Verify it matches the Northstar agreement PDF
+            doc_names = [r.source_name for r in res]
+            self.assertTrue(any("Agreement" in n or "Northstar" in n for n in doc_names))
+        finally:
+            del os.environ["RENDER_FREE_MODE"]
+
 if __name__ == "__main__":
     unittest.main()
