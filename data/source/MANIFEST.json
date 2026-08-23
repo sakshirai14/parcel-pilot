@@ -1,0 +1,60 @@
+{
+    "documents": [
+        {
+            "filename": "01_Support_Policy_v3_CURRENT.pdf",
+            "document_type": "Support Policy",
+            "status": "CURRENT",
+            "authority_level": 80,
+            "effective_date": "2024-03-01",
+            "version": "3.0",
+            "supersedes": "02_Support_Policy_v2_DEPRECATED.pdf"
+        },
+        {
+            "filename": "02_Support_Policy_v2_DEPRECATED.pdf",
+            "document_type": "Support Policy",
+            "status": "DEPRECATED",
+            "authority_level": 0,
+            "effective_date": "2022-01-01",
+            "version": "2.0",
+            "supersedes": null
+        },
+        {
+            "filename": "03_Cancellation_and_Service_Credit_SOP_v4.pdf",
+            "document_type": "Standard Operating Procedure",
+            "status": "CURRENT",
+            "authority_level": 70,
+            "effective_date": "2024-01-15",
+            "version": "4.0",
+            "supersedes": null
+        },
+        {
+            "filename": "04_Product_Operations_Guide_and_Known_Issues.pdf",
+            "document_type": "Product Documentation",
+            "status": "CURRENT",
+            "authority_level": 60,
+            "effective_date": "2024-02-01",
+            "version": "1.0",
+            "supersedes": null
+        },
+        {
+            "filename": "05_Northstar_Logistics_Enterprise_Agreement.pdf",
+            "document_type": "Customer Agreement",
+            "status": "CURRENT",
+            "authority_level": 100,
+            "customer_account_id": "ACCT-001",
+            "effective_date": "2023-06-01",
+            "version": "1.0",
+            "supersedes": null
+        },
+        {
+            "filename": "06_LumenWorks_Service_Agreement.pdf",
+            "document_type": "Customer Agreement",
+            "status": "CURRENT",
+            "authority_level": 100,
+            "customer_account_id": "ACCT-002",
+            "effective_date": "2023-09-01",
+            "version": "1.0",
+            "supersedes": null
+        }
+    ]
+}

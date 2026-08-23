@@ -1,0 +1,29 @@
+# Environment files
+.env
+
+# Python caching
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+
+# Node dependencies and builds
+node_modules/
+dist/
+build/
+
+# Application-generated data directories to ignore
+data/database/*.db
+data/vectorstore/
+data/processed/
+data/generated/
+logs/
+
+# Do NOT ignore data/source/ so user data can be committed if desired
+!data/source/
