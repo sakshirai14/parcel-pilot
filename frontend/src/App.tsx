@@ -3,6 +3,7 @@ import { Send, Trash2, MessageSquare, Bot, AlertTriangle } from 'lucide-react';
 import type { UserContext, ChatResponse, Citation, ToolActivity, ActionProposal, AuthorityResolution } from './types';
 import { sendMessage, getBackendConfig } from './services/api';
 import { ContextSwitcher } from './components/ContextSwitcher';
+import { ConfirmationCard } from './components/ConfirmationCard';
 
 interface Message {
   id: string;
@@ -193,6 +194,22 @@ export default function App() {
                   <div className="message-content-wrapper">
                     <div className="message-text-bubble">
                       <p className="message-text">{msg.text}</p>
+                      {msg.requires_confirmation && msg.proposed_action && (
+                        <ConfirmationCard
+                          proposal={msg.proposed_action}
+                          userContext={currentContext}
+                          onActionCompleted={(resultMessage, _isSuccess) => {
+                            setMessages((prev) => [
+                              ...prev,
+                              {
+                                id: Date.now().toString(),
+                                sender: 'assistant',
+                                text: resultMessage,
+                              },
+                            ]);
+                          }}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

@@ -130,7 +130,7 @@ describe('ParcelPilot Chatbot UI', () => {
     expect(screen.queryByText(/State:/i)).not.toBeInTheDocument();
   });
 
-  it('6. Confirmation cards are not rendered in the DOM', async () => {
+  it('6. Confirmation cards are rendered in the DOM', async () => {
     const proposal = {
       action_id: 'ACT-1234',
       action_type: 'CREATE_ESCALATION',
@@ -161,12 +161,12 @@ describe('ParcelPilot Chatbot UI', () => {
     await waitFor(() => {
       expect(screen.getByText('I prepared the escalation.')).toBeInTheDocument();
     });
-    expect(screen.queryByTestId('confirmation-card')).not.toBeInTheDocument();
-    expect(screen.queryByText('Action Requires Confirmation')).not.toBeInTheDocument();
-    expect(screen.queryByText('ACT-1234')).not.toBeInTheDocument();
+    expect(screen.getByTestId('confirmation-card')).toBeInTheDocument();
+    expect(screen.getByText('Action Requires Confirmation')).toBeInTheDocument();
+    expect(screen.getByText('ACT-1234')).toBeInTheDocument();
   });
 
-  it('7. Handles confirm conversationally without rendering confirmation card components', async () => {
+  it('7. Renders confirm button for action confirmation', async () => {
     const proposal = {
       action_id: 'ACT-1234',
       action_type: 'CREATE_ESCALATION',
@@ -198,11 +198,10 @@ describe('ParcelPilot Chatbot UI', () => {
       expect(screen.getByText('I prepared the escalation.')).toBeInTheDocument();
     });
 
-    expect(screen.queryByTestId('confirm-btn')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('action-success')).not.toBeInTheDocument();
+    expect(screen.getByTestId('confirm-btn')).toBeInTheDocument();
   });
 
-  it('8. Handles cancel action conversationally without rendering card components', async () => {
+  it('8. Renders cancel button for action cancellation', async () => {
     const proposal = {
       action_id: 'ACT-1234',
       action_type: 'CREATE_ESCALATION',
@@ -234,7 +233,7 @@ describe('ParcelPilot Chatbot UI', () => {
       expect(screen.getByText('I prepared the escalation.')).toBeInTheDocument();
     });
 
-    expect(screen.queryByTestId('cancel-btn')).not.toBeInTheDocument();
+    expect(screen.getByTestId('cancel-btn')).toBeInTheDocument();
   });
 
   it('9. Displays error toast when API fails', async () => {
