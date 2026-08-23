@@ -337,7 +337,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 # Resolve frontend/dist path relative to project root
-frontend_dist_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "frontend", "dist"))
+from backend.app.config import PROJECT_ROOT
+frontend_dist_path = os.path.abspath(os.path.join(PROJECT_ROOT, "frontend", "dist"))
 
 if os.path.exists(frontend_dist_path):
     # Mount assets subfolder first
