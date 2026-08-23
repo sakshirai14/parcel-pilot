@@ -4,7 +4,18 @@ from typing import Optional, List, Dict, Any
 from backend.app.config import DATABASE_PATH
 from backend.app.schemas.actions import ActionProposal, ActionStatus, ActionType, AuditLogEntry
 
+import shutil
+from pathlib import Path
+
+def _ensure_db_exists():
+    from backend.app.config import DATABASE_DIR
+    bundled_db = DATABASE_DIR / "parcelpilot.db"
+    if DATABASE_PATH != bundled_db and not DATABASE_PATH.exists() and bundled_db.exists():
+        DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(bundled_db, DATABASE_PATH)
+
 def get_connection():
+    _ensure_db_exists()
     conn = sqlite3.connect(DATABASE_PATH)
     conn.row_factory = sqlite3.Row
     return conn

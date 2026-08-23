@@ -19,9 +19,8 @@ class OperationalLookupResult(BaseModel):
 class DataLookupTool:
     @staticmethod
     def _get_connection():
-        conn = sqlite3.connect(DATABASE_PATH)
-        conn.row_factory = sqlite3.Row
-        return conn
+        from backend.app.data.action_db import get_connection
+        return get_connection()
 
     @classmethod
     def lookup_account(cls, user_context: UserContext, account_id: str) -> OperationalLookupResult:
