@@ -110,7 +110,7 @@ sequenceDiagram
 
 ---
 
-## Deployment Instructions (Option B - Single Docker)
+## Deployment Instructions (Single Docker)
 
 ### 1. Build and Run locally with Docker
 To build the production container locally and run it:
