@@ -10,7 +10,7 @@ from pathlib import Path
 def _ensure_db_exists():
     from backend.app.config import DATABASE_DIR
     bundled_db = DATABASE_DIR / "parcelpilot.db"
-    if DATABASE_PATH != bundled_db and not DATABASE_PATH.exists() and bundled_db.exists():
+    if DATABASE_PATH != bundled_db and (not DATABASE_PATH.exists() or (DATABASE_PATH.exists() and DATABASE_PATH.stat().st_size == 0)) and bundled_db.exists():
         DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(bundled_db, DATABASE_PATH)
 

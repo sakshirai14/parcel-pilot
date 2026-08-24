@@ -18,7 +18,7 @@ if not os.getenv("GEMINI_API_KEY"):
 from backend.app.agent.graph import agent_graph
 
 def run_real_gemini_test():
-    query = "Can Northstar cancel ORD-1001 without a cancellation fee?"
+    query = "Cancel ORD-1001"
     print(f"=== REAL GEMINI E2E MANUAL TEST ===")
     print(f"Query: '{query}'")
     print(f"Model: {os.getenv('LLM_MODEL', 'gemini-3.7-flash')}")
@@ -26,8 +26,8 @@ def run_real_gemini_test():
     print("-" * 50)
 
     initial_state = {
-        "user_id": "support-agent-manual",
-        "role": "SUPPORT_AGENT",
+        "user_id": "ops-demo",
+        "role": "OPERATIONS_ADMIN",
         "account_id": "ACCT-001",
         "query": query,
         "plan": [],
